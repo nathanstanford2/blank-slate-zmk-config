@@ -1,0 +1,9 @@
+/ {
+    combos {
+        combo_lower_raise_adjust {
+            timeout-ms = <30>;
+            key-positions = <40 43>;   // row 3 col 4 + row 3 col 7
+            bindings = <&mo SYM_L>;
+        };
+    };
+};
