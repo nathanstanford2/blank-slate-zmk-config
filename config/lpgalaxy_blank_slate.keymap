@@ -20,11 +20,12 @@
 #define SYM_L 3
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
-&lt { quick_tap_ms = <200>; };
 
 #define BT(n) BT_SEL n
 
 / {
+    quick_tap_ms = <200>;
+
     chosen {
        zmk,physical-layout =
 #ifdef TBLE_DUAL_2U
@@ -45,14 +46,19 @@
     };
     
     macros {
-      meh = <&kp LC(LS(LA()))>;
-      hyper = <&kp LC(LS(LA(LG())))>;
+      ZMK_MACRO(meh,
+        bindings = <&kp LCTRL &kp LSHIFT &kp LALT>;
+      )
+
+      ZMK_MACRO(hyper,
+        bindings = <&kp LCTRL &kp LSHIFT &kp LALT &kp LGUI>;
+      )
 
       ZMK_MACRO(thumbs_up,
-		wait-ms = <1>;
-		tap-ms = <5>;
-                bindings = <&kp PLUS &kp COLON &kp PLUS &kp N1 &kp COLON &kp RET>;
-		)
+        wait-ms = <1>;
+        tap-ms = <5>;
+        bindings = <&kp PLUS &kp COLON &kp PLUS &kp N1 &kp COLON &kp RET>;
+      )
     };
     
     tap_dances {
